@@ -1,0 +1,39 @@
+{
+    "name": "rareview/block-editor",
+    "description": "Scaffold for building with the WordPress Block Editor.",
+    "type": "project",
+    "license": "MIT",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": {},
+    "config": {
+        "sort-packages": true,
+        "process-timeout": 600,
+        "preferred-install": "dist",
+        "vendor-dir": "lib/vendor",
+        "platform-check": false,
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Rareview\\BlockEditor\\": "lib"
+        }
+    },
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "deploy": [
+            "composer install --no-dev --prefer-dist --optimize-autoloader"
+        ]
+    },
+    "extra": {}
+}
