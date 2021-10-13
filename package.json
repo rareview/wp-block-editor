@@ -1,0 +1,43 @@
+{
+    "name": "rareview-block-editor",
+    "description": "Scaffold for building with the WordPress Block Editor.",
+    "author": "Rareview <hello@rareview.com>",
+    "license": "MIT",
+    "homepage": "https://rareview.com",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rareview/wp-block-editor.git"
+    },
+    "engineStrict": true,
+    "engines": {
+        "node": ">=14 <15"
+    },
+    "lint-staged": {
+        "*.css": [
+            "npm run lint:css --silent"
+        ],
+        "*.js": [
+            "npm run lint:js --silent"
+        ],
+        "*.php": [
+            "npm run lint:php"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "scripts": {
+        "setup": "npm install && composer install",
+        "reset": "rm -drf node_modules lib/vendor",
+        "dev": "webpack --watch",
+        "build": "BUILD_MODEL=release webpack",
+        "deploy": "composer deploy && npm run build",
+        "lint:js": "wp-scripts lint-js './**/*.js'",
+        "lint:php": "composer lint;exit 0",
+        "lint:css": "wp-scripts lint-style './**/*.css'"
+    },
+    "devDependencies": {},
+    "dependencies": {}
+}
