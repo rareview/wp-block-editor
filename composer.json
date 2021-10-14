@@ -10,7 +10,6 @@
         "sort-packages": true,
         "process-timeout": 600,
         "preferred-install": "dist",
-        "vendor-dir": "lib/vendor",
         "platform-check": false,
         "platform": {
             "php": "7.4"
@@ -25,7 +24,7 @@
         "composer/installers": "~1.0"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
         "wp-coding-standards/wpcs": "^2.3"
     },
     "scripts": {
