@@ -88,6 +88,7 @@ if ( file_exists( AUTOLOADER ) ) {
 		function() {
 			new AllowedBlocks();
 			new BlockLibrary();
+			new BlockStyles();
 		}
 	);
 }
