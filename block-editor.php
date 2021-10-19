@@ -25,16 +25,23 @@ const AUTOLOADER = __DIR__ . '/vendor/autoload.php';
  */
 abstract class Config {
 
-	const BLOCKS_NAMESPACE        = 'rareview';
-	const BLOCKS_MANIFEST         = 'dist/manifest.json';
+	const BLOCK_EDITOR_NAMESPACE  = 'rareview';
+	const BLOCK_EDITOR_MANIFEST   = 'dist/manifest.json';
 	const BLOCK_LIBRARY_LOCATION  = 'block-library';
 	const BLOCK_PATTERNS_LOCATION = 'block-patterns';
 
 	/**
+	 * Class Registered
+	 *
+	 * @var boolean $registered
+	 */
+	protected static $registered = [];
+
+	/**
 	 * Lookup a location relative to the plugin directory.
 	 *
-	 * @param string $loc The location, directory or file, to lookup.
-	 * @param bool   $url True if requesting the URL, otherwise it is a path.
+	 * @param string  $loc The location, directory or file, to lookup.
+	 * @param boolean $url True if requesting the URL, otherwise it is a path.
 	 */
 	public static function dir( $loc = '', $url = false ) {
 		return ( true === $url ? plugin_dir_url( __FILE__ ) : plugin_dir_path( __FILE__ ) ) . $loc;
@@ -48,6 +55,28 @@ abstract class Config {
 	public static function url( $loc = '' ) {
 		return self::dir( $loc, true );
 	}
+
+	/**
+	 * Checks if a class has already been registered.
+	 *
+	 * @param object $class Passed __CLASS__ to be registered.
+	 *
+	 * @return boolean
+	 */
+	protected function is_registered( $class ) {
+		return in_array( $class, self::$registered, true );
+	}
+
+	/**
+	 * Handles one-time class registration.
+	 *
+	 * @param object $class Passed __CLASS__ to be registered.
+	 */
+	protected function register( $class ) {
+		if ( ! self::is_registered( $class ) ) {
+			array_push( self::$registered, $class );
+		}
+	}
 }
 
 // Fire things off, if we have an autoload file.
@@ -56,6 +85,9 @@ if ( file_exists( AUTOLOADER ) ) {
 
 	add_action(
 		'plugins_loaded',
-		function() {}
+		function() {
+			new AllowedBlocks();
+			new BlockLibrary();
+		}
 	);
 }
