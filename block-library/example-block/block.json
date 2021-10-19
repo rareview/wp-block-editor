@@ -1,0 +1,11 @@
+{
+	"apiVersion": 2,
+	"name": "rareview/example-block",
+	"title": "Example Block",
+	"category": "rareview",
+	"icon": "smiley",
+	"description": "Example block for Rareview",
+	"supports": {},
+	"textdomain": "rareview",
+	"editorScript": "rareview-example-block-editor-script"
+}
