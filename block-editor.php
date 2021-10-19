@@ -89,6 +89,7 @@ if ( file_exists( AUTOLOADER ) ) {
 			new AllowedBlocks();
 			new BlockLibrary();
 			new BlockStyles();
+			new BlockSidebars();
 		}
 	);
 }

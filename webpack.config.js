@@ -94,8 +94,8 @@ for ( const block of blocks ) {
 const blockEditor = Object.assign( { ...shared }, {
 	entry : {
 		...blockLibrary,
-		'block-styles' : path.resolve( __dirname, 'block-styles/index.js' ),
-		'sidebars'     : path.resolve( __dirname, 'sidebars/index.js' ),
+		'block-styles'          : path.resolve( __dirname, 'block-styles/index.js' ),
+		'block-editor-sidebars' : path.resolve( __dirname, 'sidebars/index.js' ),
 	},
 
 	output : {
