@@ -8,7 +8,8 @@
  * License: MIT
  * Text Domain: rv-block-editor
  *
- * @package BlockEditor
+ * @package Rareview
+ * @subpackage BlockEditor
  *
  * @author Rareview <hello@rareview.com>
  */
