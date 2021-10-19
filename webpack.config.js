@@ -1,6 +1,5 @@
 const path = require( 'path' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
-const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 const glob = require( 'glob' );
 const OptimizeJS = require( 'terser-webpack-plugin' );
 const OptimizeCSS = require( 'csso-webpack-plugin' ).default;
