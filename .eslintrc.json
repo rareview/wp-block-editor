@@ -1,0 +1,28 @@
+{
+    "extends": [
+        "plugin:@wordpress/eslint-plugin/recommended-with-formatting"
+    ],
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "globals": {
+        "wp": true
+    },
+    "parserOptions":{
+        "ecmaVersion": 2020,
+        "experimentalObjectRestSpread": true
+    },
+    "rules": {
+        "no-console": "warn",
+        "react-hooks/rules-of-hooks": "off",
+        "quote-props": ["error", "consistent"],
+        "key-spacing": [
+            "error",
+            {
+                "beforeColon": true,
+                "align": "colon"
+            }
+        ]
+    }
+}

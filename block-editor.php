@@ -24,6 +24,11 @@ const AUTOLOADER = __DIR__ . '/vendor/autoload.php';
  */
 abstract class Config {
 
+	const BLOCKS_NAMESPACE        = 'rareview';
+	const BLOCKS_MANIFEST         = 'dist/manifest.json';
+	const BLOCK_LIBRARY_LOCATION  = 'block-library';
+	const BLOCK_PATTERNS_LOCATION = 'block-patterns';
+
 	/**
 	 * Lookup a location relative to the plugin directory.
 	 *
